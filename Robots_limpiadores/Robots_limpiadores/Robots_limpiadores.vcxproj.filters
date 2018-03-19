@@ -49,11 +49,17 @@
       <Filter>Header Files</Filter>
     </ClInclude>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     <ClInclude Include="general.h">
       <Filter>Header Files</Filter>
     </ClInclude>
 >>>>>>> d69835e9abfdf899c908eb52c8525f669fcd2553
+=======
+    <ClInclude Include="general.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+>>>>>>> 282ad5c12a9d15c629ed498f842bad7ef4f75956
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

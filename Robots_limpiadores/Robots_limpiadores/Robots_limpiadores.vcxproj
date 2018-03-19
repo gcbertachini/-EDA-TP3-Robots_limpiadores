@@ -128,9 +128,13 @@
 <<<<<<< HEAD
     <ClInclude Include="..\Simulacion.h" />
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     <ClInclude Include="general.h" />
 >>>>>>> d69835e9abfdf899c908eb52c8525f669fcd2553
+=======
+    <ClInclude Include="general.h" />
+>>>>>>> 282ad5c12a9d15c629ed498f842bad7ef4f75956
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -144,10 +148,14 @@
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
 =======
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
 >>>>>>> d69835e9abfdf899c908eb52c8525f669fcd2553
+=======
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+>>>>>>> 282ad5c12a9d15c629ed498f842bad7ef4f75956
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\AllegroDeps.1.7.0.0\build\native\AllegroDeps.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\AllegroDeps.1.7.0.0\build\native\AllegroDeps.targets'))" />
     <Error Condition="!Exists('..\packages\Allegro.5.2.4.0\build\native\Allegro.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Allegro.5.2.4.0\build\native\Allegro.targets'))" />
