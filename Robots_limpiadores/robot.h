@@ -1,9 +1,14 @@
 #ifndef _PISO_H
 #define _PISO_H
-#include "general.h"
 /************************************************************************
                         CLASES Y TYPEDEFS
 ************************************************************************/
+typedef unsigned int uint;
+
+typedef struct {
+	double x;
+	double y;
+}position_t;
 
 class Robot 
 {

@@ -27,12 +27,6 @@
     <ClCompile Include="..\robot.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\piso.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Simulacion.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\main.h">
@@ -47,6 +41,7 @@
     <ClInclude Include="..\robot.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="..\piso.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -68,5 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+=======
+>>>>>>> parent of ad752f2... 2
   </ItemGroup>
 </Project>
