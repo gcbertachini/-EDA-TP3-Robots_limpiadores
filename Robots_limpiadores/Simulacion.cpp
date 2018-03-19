@@ -9,7 +9,6 @@ ALLEGRO_DISPLAY *dis = NULL;
 
 bool simulacion::create(uint robotcount, uint fils, uint cols, modetype m)
 {
-
 	pisop.create(fils, cols);	//Creo el piso
 
 	robs = (Robot*)malloc(robotcount * sizeof(Robot));	//Creo los robots
@@ -20,15 +19,12 @@ bool simulacion::create(uint robotcount, uint fils, uint cols, modetype m)
 			robs[i].create(fils, cols);
 		}
 
-
-		uint tickscount = 0;
-
+		ticks = 0; //inicializo el contador de ticks
 	}
 
 	else
 
 	{
-		pisop.destroy();
 		destroy();
 	}
 
@@ -38,31 +34,26 @@ bool simulacion::create(uint robotcount, uint fils, uint cols, modetype m)
 
 
 
-void simulacion::avanzar(uint robotcount, uint fils, uint cols)
+uint simulacion::run(uint robotcount, uint fils, uint cols, modetype m)
 {
-	for (uint i = 0; i < robotcount; i++)
+	while (!pisop.stillDirty())	//Mientras todavía queden baldosas sucias...
 	{
-		robs[i].update(fils, cols);
-		position_t coord_actual = robs[i].getPos();
-		pisop.update(coord_actual.x, coord_actual.y);
+		for (uint i = 0; i < robotcount; i++)	//Se actualizarán los robots y se limpiarán las nuevas baldosas
+		{
+			robs[i].update(fils, cols);
+			position_t coord_actual = robs[i].getPos();
+			pisop.update(coord_actual);
+		}
+
+		ticks++;
 	}
+	return ticks;
 }
 
 
-
-uint simulacion::run(uint robotcount, uint fils, uint cols, modetype m)
+void simulacion::destroy()
 {
-	if (m = modo1)	//Si es el modo 1, debe graficarse en Allegro
+	pisop.destroy();
+	free(robs);
 
-	{
-		if (!al_init()) //Inicializar Allegro
-		{
-			fprintf(stderr, "Error al inicializar Allegro."); // Imprimir errores en stream STDERR
-			exit(-1);
-		}
-
-		al_init_image_addon();
-
-		dis = al_create_display(fils, cols);
-	}
 }
