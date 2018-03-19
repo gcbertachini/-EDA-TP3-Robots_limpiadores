@@ -5,11 +5,6 @@ VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Robots_limpiadores", "Robots_limpiadores\Robots_limpiadores.vcxproj", "{87870215-8129-466D-81B4-D9B3777D2ED9}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "allegro_bit_map", "allegro_bit_map", "{EDAA94AA-D1DA-48A5-AEC5-6E43A22D10BE}"
-	ProjectSection(SolutionItems) = preProject
-		E:\Documentos\Documents\Facultad\ITBA\1° año\2 ° Cuatri\Programación I\Clases Teóricas\Allegro+Netbeans\Ejemplos Allegro 24-5-17(1)\AllegroEx10BitmapsEscalado\main.c = E:\Documentos\Documents\Facultad\ITBA\1° año\2 ° Cuatri\Programación I\Clases Teóricas\Allegro+Netbeans\Ejemplos Allegro 24-5-17(1)\AllegroEx10BitmapsEscalado\main.c
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
