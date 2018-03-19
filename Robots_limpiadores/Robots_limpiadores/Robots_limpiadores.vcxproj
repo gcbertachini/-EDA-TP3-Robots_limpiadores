@@ -118,11 +118,13 @@
     <ClCompile Include="..\main.cpp" />
     <ClCompile Include="..\parseCmdLine.cpp" />
     <ClCompile Include="..\parser.cpp" />
+    <ClCompile Include="..\robot.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\main.h" />
     <ClInclude Include="..\parseCmdLine.h" />
     <ClInclude Include="..\parser.h" />
+    <ClInclude Include="..\robot.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
