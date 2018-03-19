@@ -42,3 +42,6 @@ using namespace std;
 		getchar(); //Este getchar borrenlo antes de entregar, es para ver que imprime el programa.
 		return 0;
 	}
+
+
+void iniciar_

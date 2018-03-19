@@ -11,7 +11,6 @@ class simulacion
 {	public:
 		bool create(uint robotcount, uint fils, uint cols, modetype m);
 		uint run(uint robotcount, uint fils, uint cols, modetype m);
-		void avanzar(uint robotcount, uint fils, uint cols);
 		void destroy();
 
 

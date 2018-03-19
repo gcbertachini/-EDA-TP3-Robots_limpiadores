@@ -66,7 +66,7 @@ bool checkValues(char * key, char * value, void * parameters) {
 
 	if (strlen(&(key[1])) <= MAX_PARAM_SIZE)
 	{
-		strcpy(casehandler, &(key[1])); // Para no tomar con el strcmp el OPTION_IDENTIFIER, además de asegurarnos que podamos modificar el string.
+		strcpy_s(casehandler, &(key[1])); // Para no tomar con el strcmp el OPTION_IDENTIFIER, además de asegurarnos que podamos modificar el string.
 		if (!(strcmp(strlower(casehandler),"width")) && (atoi(value) <= 70) && (atoi(value) > 0)){ //Corroboro cual parámetro es y si cumple los valores en los que está acotado.
 				param->width = atoi(value);
 				validez = true;

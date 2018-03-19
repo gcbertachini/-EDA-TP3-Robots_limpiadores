@@ -1,5 +1,6 @@
 #pragma once
 #include<cmath>
+#include "general.h"
 
 class Piso {
 
@@ -11,18 +12,18 @@ public:
 	void destroy();
 	//destruye el arreglo creado
 
-	bool update(double x, double y);
+	bool update(position_t location);
 	//toma las coordenadas en donde va el robot se fija como esta el piso y lo limpia
 
-	bool isDirty(double x, double y);
+	bool isDirty(position_t location);
 
 	bool stillDirty();
 	//se fija si estan limpias todas las baldosas devuelve false si lo estan
 	//caso contrario devuelve true
 
 private:
-	unsigned int fila_size;
-	unsigned int col_size;
+	uint fila_size;
+	uint col_size;
 	bool ** tiles;	//chequear este 
 
 
