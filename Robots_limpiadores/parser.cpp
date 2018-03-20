@@ -71,26 +71,40 @@ bool checkValues(char * key, char * value, void * parameters) {
 	{
 		strcpy(casehandler, &(key[1])); // Para no tomar con el strcmp el OPTION_IDENTIFIER, además de asegurarnos que podamos modificar el string.
 		if (!(strcmp(strlower(casehandler),"width")) && (atoi(value) <= 70) && (atoi(value) > 0)){ //Corroboro cual parámetro es y si cumple los valores en los que está acotado.
+			if (param->flags[0] == false) {
 				param->width = atoi(value);
 				validez = true;
+				param->flags[0] = true;
+			}
 		}
 		else if (!(strcmp(strlower(casehandler), "height")) && (atoi(value) <= 100) && (atoi(value) > 0)){
-			param->height = atoi(value);
-			validez = true;
+			if (param->flags[1] == false) {
+				param->height = atoi(value);
+				validez = true;
+				param->flags[1] = true;
+			}
 		}
 		else if (!(strcmp(strlower(casehandler), "robots")) && (atoi(value) > 0)) {
-			param->robots = atoi(value);
-			validez = true;
+			if (param->flags[2] == false) {
+				param->robots = atoi(value);
+				validez = true;
+				param->flags[2] = true;
+			}
 		}
 		else if (!(strcmp(strlower(casehandler), "mode"))) {
+			if (param->flags[3] == false) {
 
-			if (atoi(value) == mode1) {
-				param->mode = mode1;
-				validez = true;
-			}
-			else if (atoi(value) == mode2) {
-				param->mode = mode2;
-				validez = true;
+				if (atoi(value) == mode1) {
+					param->mode = mode1;
+					validez = true;
+					param->flags[3] = true;
+				}
+				else if (atoi(value) == mode2) {
+					param->mode = mode2;
+					validez = true;
+					param->flags[3] = true;
+				}
+
 			}
 		}
 	}
