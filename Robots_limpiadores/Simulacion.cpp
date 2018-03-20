@@ -2,7 +2,7 @@
 #include <time.h>
 #include <iostream>
 #include <cmath>
-#include <allegro5\allegro.h>
+#include <allegro5/allegro.h>
 #include <allegro5/allegro_image.h>
 
 ALLEGRO_DISPLAY *dis = NULL;
@@ -29,7 +29,7 @@ bool simulacion::create(uint robotcount, uint fils, uint cols, modetype m)
 
 	{
 		pisop.destroy();
-		destroy();
+//		destroy();
 	}
 
 	return (robs != NULL);
@@ -46,8 +46,10 @@ uint simulacion::run(uint robotcount, uint fils, uint cols, modetype m)
 		{
 			robs[i].update(fils, cols);
 			position_t coord_actual = robs[i].getPos();
-			pisop.update(coord_actual);
+			pisop.update(coord_actual.x, coord_actual.y);
 		}
 	}
 	ticks++;
+
+	return ticks;
 }

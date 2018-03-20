@@ -32,11 +32,11 @@ using namespace std;
 		else {
 			cout << "Please check your input.\n" << endl;
 			cout << "The valid inputs are:\n" << endl;
-			cout << "-Height (1-100)\n" << endl;
-			cout << "-Width (1-70)\n" << endl;
-			cout << "-Robots (Any positive number greater than 0)\n" << endl;
-			cout << "-Mode (1 or 2. Mode 1 runs a graphical simulation. Mode 2 runs multiple simulations and show a graph at the end.\n" << endl;
-			cout << "Should you choose Mode 2, inputting the number of robots is not necessary.)" << endl;
+			cout << "-Height (1-100)" << endl;
+			cout << "-Width (1-70)" << endl;
+			cout << "-Robots (Any positive number greater than 0)" << endl;
+			cout << "-Mode (1 or 2. Mode 1 runs a graphical simulation. Mode 2 runs multiple simulations and show a graph at the end." << endl;
+			cout << "Should you choose Mode 2, inputting the number of robots is not necessary.)\n" << endl;
 			cout << "Press any key to end the program." << endl;
 		}
 		

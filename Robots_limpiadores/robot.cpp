@@ -1,4 +1,5 @@
-#include<cmath>
+#define _USE_MATH_DEFINES
+#include <cmath>
 #include "robot.h"
 #include <time.h>
 #include <iostream>
