@@ -1,4 +1,6 @@
 //#include "allegroInit.h"
+#include "general.h"
+#include "parameters.h"
 #include "parseCmdLine.h"
 #include <iostream>
 

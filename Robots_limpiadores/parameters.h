@@ -1,9 +1,7 @@
 #pragma once
+#include "general.h"
 
-typedef enum { mode1 = 1, mode2 = 2 } modetype;
-#define OPTION_QTY 4
-
-typedef class{
+typedef class {
 public:
 	const char * options[OPTION_QTY];
 	int width;
@@ -11,4 +9,3 @@ public:
 	int robots;
 	int mode;
 } parameters_t;
-

@@ -84,6 +84,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -123,12 +124,13 @@
     <ClCompile Include="..\Simulacion.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\main.h" />
+    <ClInclude Include="..\general.h" />
     <ClInclude Include="..\parseCmdLine.h" />
     <ClInclude Include="..\parser.h" />
     <ClInclude Include="..\piso.h" />
     <ClInclude Include="..\robot.h" />
     <ClInclude Include="..\Simulacion.h" />
+    <ClInclude Include="parameters.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
