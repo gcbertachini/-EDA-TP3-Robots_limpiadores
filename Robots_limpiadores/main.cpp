@@ -3,6 +3,7 @@
 #include "parseCmdLine.h"
 #include "Simulacion.h"
 #include <iostream>
+#include "allegro_startup.h"
 
 #define MAX_ROBS_PERMITIDOS 100
 
@@ -10,40 +11,45 @@ using namespace std;
 
 	int main(int argc, char * argv[]) {
 
+		bool allegro_startup(void);
+
 		class parameters_t germanTheTrueDetractor;
 
 		int vArguments = parseCmdLine(argc, argv, parseCallback, &germanTheTrueDetractor); //Cantidad de argumentos válidos.
 
-		if ((vArguments == 4) || ((germanTheTrueDetractor.mode == mode1) && (vArguments == 3) && germanTheTrueDetractor.robots == 0)) {
-		printf("Height: %d \nWidth = %d \nNumber of robots = %d \nMode: %d", germanTheTrueDetractor.height, germanTheTrueDetractor.width, germanTheTrueDetractor.robots, germanTheTrueDetractor.mode);
+		if ((((vArguments == 4) && germanTheTrueDetractor.mode == mode1)) || ((vArguments == 3) && germanTheTrueDetractor.robots == 0)) 
+			{
+		       printf("Height: %d \nWidth = %d \nNumber of robots = %d \nMode: %d", germanTheTrueDetractor.height, germanTheTrueDetractor.width, germanTheTrueDetractor.robots, germanTheTrueDetractor.mode);
 		
-			if (germanTheTrueDetractor.mode == mode1)
+			/*if (germanTheTrueDetractor.mode == mode1)
 			{
 				simulacion Simulate;
 				Simulate.create(germanTheTrueDetractor.robots, germanTheTrueDetractor.height, germanTheTrueDetractor.width, germanTheTrueDetractor.mode);
 				Simulate.run(germanTheTrueDetractor.robots, germanTheTrueDetractor.height, germanTheTrueDetractor.width, germanTheTrueDetractor.mode);
 
 			Simulate.destroy();
-			}/*
-			else
+			}*/
+			if(1)
 			{
 				simulacion Simulate;
-				double tickMedio[MAX_ROBS_PERMITIDOS];
-				for (int i = 2; (i < MAX_ROBS_PERMITIDOS) && 1  (Simulate(N++).Simulate(N) > 0; 1)
-				{	
-					double sum = 0;
+				double tickMedio[MAX_ROBS_PERMITIDOS] = {};
 
-					for (int sumcount = 0; sumcount < 1000; sumcount++)
+				for (int i = 1; (i < MAX_ROBS_PERMITIDOS) &&   ((tickMedio[i] - tickMedio[i - 1]) < 0.1) ; i++)
+				{	
+					double sum = 0.0;
+
+					for (int countsum = 0; countsum < 1000; countsum++)
 					{
 
-						Simulate.create(i, germanTheTrueDetractor.height, germanTheTrueDetractor.width, mode2);
+						Simulate.create(germanTheTrueDetractor.robots, germanTheTrueDetractor.height, germanTheTrueDetractor.width, mode2);
 						sum += Simulate.run(germanTheTrueDetractor.robots, germanTheTrueDetractor.height, germanTheTrueDetractor.width, germanTheTrueDetractor.mode);
 						Simulate.destroy();
 					}
 					tickMedio[i - 1] = sum / 1000;
-					//histograma(tickMedio, i);
+					printf("%f", sum);
 				}
-			}*/
+				//histograma(tickMedio, i);
+			}
 		
 		
 		}
@@ -58,33 +64,9 @@ using namespace std;
 			cout << "Press any key to end the program." << endl;
 		}
 
-		user Params initData;
-		ParseCmdLine(argc, argv, callback, &initData);
-		if (initData.mode == modo1)
-		{
-			simulacion Simulate;
-			Simulate.create(initData.robots, initData.filas, initData.columnas, initData.mode)
-				Simulate.run();
-
-			Simulate.destroy();
-		}
-		else
-		{
-			double tickMedio[MAX_ROBS_PERMITIDOS];
-			for (int i = 2; (i<MAX_ROBS_PERMITIDOS) && (Simulate(N++).Simulate(N)>0, 1);
-			{	double sum = 0, 0;
-				for (int sumcount = 0; sumcount < 1000; c++)
-				{
-					simulation.Simulate;
-						Simulate.create(i, initData.filas, initData.columnas, mode2);
-						sum += Simulate.run();
-						Simulate.destroy();
-				}
-			tickMedio[i - 1] = sum / 1000;
-				histograma(tickMedio; i);
-			}
-		}
 		
 		getchar(); //Este getchar borrenlo antes de entregar, es para ver que imprime el programa.
+		void allegro_shut_down(void);
+
 		return 0;
 	}

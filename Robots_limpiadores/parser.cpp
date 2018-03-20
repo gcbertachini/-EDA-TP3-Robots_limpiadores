@@ -1,6 +1,9 @@
 #include "parser.h"
 #include "parameters.h"
-#include <string>
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
 
 #define MAX_PARAM_SIZE 12
 

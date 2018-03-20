@@ -3,6 +3,9 @@
 #include "robot.h"
 #include "piso.h"
 #include "general.h"
+#include <allegro5/allegro5.h>
+#include <allegro5/allegro_image.h>
+
 typedef unsigned int uint;
 
 //double tick_time = 0.25;
