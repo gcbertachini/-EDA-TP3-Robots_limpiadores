@@ -9,8 +9,7 @@
 
 bool simulacion::create(uint robotcount, uint fils, uint cols, modetype m)
 {
-
-	//pisop.create(fils, cols);	//Creo el piso
+	pisop.create(fils, cols);	//Creo el piso
 
 	robs = (Robot*)malloc(robotcount * sizeof(Robot));	//Creo los robots
 	if (robs != NULL)

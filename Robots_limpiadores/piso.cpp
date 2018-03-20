@@ -56,7 +56,6 @@ bool Piso::update(double x, double y)
 void Piso::destroy()
 {
 	free(tiles);
-
 }
 
 bool Piso::isDirty(double x, double y)

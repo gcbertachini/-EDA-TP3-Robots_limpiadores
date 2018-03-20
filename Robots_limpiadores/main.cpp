@@ -11,6 +11,7 @@ using namespace std;
 
 	int main(int argc, char * argv[]) {
 
+		
 		bool allegro_startup(void);
 
 		class parameters_t germanTheTrueDetractor;
