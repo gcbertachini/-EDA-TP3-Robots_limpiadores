@@ -49,6 +49,6 @@ void Robot::update(uint maxFils, uint maxCols)
 
 void Robot::allegro_robot(const char * nombre_archivo)	//AGREGADO POR RUBIDIO, VERIFICAR
 {
-	ALLEGRO_BITMAP * imagen = al_load_bitmap(nombre_archivo);
+	ALLEGRO_BITMAP * imagen = al_load_bitmap("WallE.png");
 	al_draw_scaled_bitmap(imagen, 0, 0, 1000, 1000, 0, 0, 0, 100, 100);
 }

@@ -60,4 +60,15 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Eva.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Limpieza.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\WallE.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
 </Project>
