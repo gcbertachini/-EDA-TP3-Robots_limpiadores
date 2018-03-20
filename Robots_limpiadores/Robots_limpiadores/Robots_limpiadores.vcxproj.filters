@@ -35,9 +35,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\main.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\parseCmdLine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -53,11 +50,25 @@
     <ClInclude Include="..\Simulacion.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="general.h">
+    <ClInclude Include="..\general.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\parameters.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Eva.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Limpieza.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\WallE.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

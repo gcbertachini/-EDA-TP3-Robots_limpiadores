@@ -1,15 +1,6 @@
-#ifndef _GENERAL_H
-#define _GENERAL_H
-/************************************************************************
-CLASES Y TYPEDEFS
-************************************************************************/
-typedef unsigned int uint;
+#pragma once
 
-typedef struct {
-	double x;
-	double y;
-}position_t;
+typedef enum {mode0 = 0, mode1 = 1, mode2 = 2 } modetype;
+#define OPTION_QTY 4
 
 
-
-#endif

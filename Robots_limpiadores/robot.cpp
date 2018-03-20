@@ -1,20 +1,24 @@
-#include<cmath>
+#define _USE_MATH_DEFINES
+#include <cmath>
 #include "robot.h"
-
 #include <time.h>
 #include <iostream>
+
+#include <allegro5/allegro.h>
+#include <allegro5/allegro_image.h>
 
 #define RADIAN(a) ( (a)/( 180.0/(double)M_PI) )
 
 
 using namespace std;
 
-void Robot :: create(uint maxFils, uint maxCols)
+void Robot::create(uint maxFils, uint maxCols)
 {
 	srand(time(NULL));
-	location.x =(rand()% maxCols);  //Obtengo una posición en x aleatoria dentro del tablero
-	location.y = (rand()% maxFils); //Obtengo una posición en y aleatoria dentro del tablero
+	location.x = (rand() % maxCols);  //Obtengo una posición en x aleatoria dentro del tablero
+	location.y = (rand() % maxFils); //Obtengo una posición en y aleatoria dentro del tablero
 	dir = (RADIAN(rand() % 360));  //Obtengo una dirección aleatoria entre 0 y 2Pi para luego pasarla a radianes
+	ALLEGRO_BITMAP * imagen = NULL;
 }
 
 position_t Robot::getPos()
@@ -38,7 +42,13 @@ void Robot::update(uint maxFils, uint maxCols)
 		location.y = next_location.y;
 	}
 
-	if(can_move==false) //Si el robot se va del piso, mantengo la posición y consigo una nueva dirección aleatoria
+	if (can_move == false) //Si el robot se va del piso, mantengo la posición y consigo una nueva dirección aleatoria
 		dir = (RADIAN(rand() % 360));
 
+}
+
+void Robot::allegro_robot(const char * nombre_archivo)	//AGREGADO POR RUBIDIO, VERIFICAR
+{
+	ALLEGRO_BITMAP * imagen = al_load_bitmap("WallE.png");
+	al_draw_scaled_bitmap(imagen, 0, 0, 1000, 1000, 0, 0, 0, 100, 100);
 }
