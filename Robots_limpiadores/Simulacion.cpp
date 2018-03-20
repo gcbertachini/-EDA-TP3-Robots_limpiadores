@@ -21,7 +21,7 @@ bool simulacion::create(uint robotcount, uint fils, uint cols, modetype m)
 		}
 
 
-		uint tickscount = 0;
+		uint ticks = 0;
 
 	}
 
@@ -38,31 +38,16 @@ bool simulacion::create(uint robotcount, uint fils, uint cols, modetype m)
 
 
 
-void simulacion::avanzar(uint robotcount, uint fils, uint cols)
-{
-	for (uint i = 0; i < robotcount; i++)
-	{
-		robs[i].update(fils, cols);
-		position_t coord_actual = robs[i].getPos();
-		pisop.update(coord_actual.x, coord_actual.y);
-	}
-}
-
-
-
 uint simulacion::run(uint robotcount, uint fils, uint cols, modetype m)
 {
-	if (m = modo1)	//Si es el modo 1, debe graficarse en Allegro
-
+	while (!pisop.stillDirty())
 	{
-		if (!al_init()) //Inicializar Allegro
+		for (uint i = 0; i < robotcount; i++)
 		{
-			fprintf(stderr, "Error al inicializar Allegro."); // Imprimir errores en stream STDERR
-			exit(-1);
+			robs[i].update(fils, cols);
+			position_t coord_actual = robs[i].getPos();
+			pisop.update(coord_actual);
 		}
-
-		al_init_image_addon();
-
-		dis = al_create_display(fils, cols);
 	}
+	ticks++;
 }
