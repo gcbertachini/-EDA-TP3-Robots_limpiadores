@@ -38,6 +38,33 @@ using namespace std;
 			cout << "-Mode (1 or 2. Mode 1 runs a graphical simulation. Mode 2 runs multiple simulations and show a graph at the end.\n" << endl;
 			cout << "Should you choose Mode 2, inputting the number of robots is not necessary.)" << endl;
 		}
+
+		user Params initData;
+		ParseCmdLine(argc, argv, callback, &initData);
+		if (initData.mode == modo1)
+		{
+			simulacion Simulate;
+			Simulate.create(initData.robots, initData.filas, initData.columnas, initData.mode)
+				Simulate.run();
+
+			Simulate.destroy();
+		}
+		else
+		{
+			double tickMedio[MAX_ROBS_PERMITIDOS];
+			for (int i = 2; (i<MAX_ROBS_PERMITIDOS) && (Simulate(N++).Simulate(N)>0, 1);
+			{	double sum = 0, 0;
+				for (int sumcount = 0; sumcount < 1000; c++)
+				{
+					simulation.Simulate;
+						Simulate.create(i, initData.filas, initData.columnas, mode2);
+						sum += Simulate.run();
+						Simulate.destroy();
+				}
+			tickMedio[i - 1] = sum / 1000;
+				histograma(tickMedio; i);
+			}
+		}
 		
 		getchar(); //Este getchar borrenlo antes de entregar, es para ver que imprime el programa.
 		return 0;
