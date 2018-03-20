@@ -20,8 +20,6 @@ bool simulacion::create(uint robotcount, uint fils, uint cols, modetype m)
 		}
 
 
-		uint ticks = 0;
-
 	}
 
 	else

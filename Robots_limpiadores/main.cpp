@@ -35,19 +35,20 @@ using namespace std;
 				simulacion Simulate;
 				double tickMedio[MAX_ROBS_PERMITIDOS] = {};
 
-				for (int i = 1; (i < MAX_ROBS_PERMITIDOS) &&   ((tickMedio[i] - tickMedio[i - 1]) < 0.1) ; i++)
+				for (int i = 1; (i <= MAX_ROBS_PERMITIDOS) &&   ((tickMedio[i] - tickMedio[i - 1]) < 0.1) ; i++)
 				{	
 					double sum = 0.0;
 
+
 					for (int countsum = 0; countsum < 1000; countsum++)
 					{
-
-						Simulate.create(germanTheTrueDetractor.robots, germanTheTrueDetractor.height, germanTheTrueDetractor.width, mode2);
-						sum += Simulate.run(germanTheTrueDetractor.robots, germanTheTrueDetractor.height, germanTheTrueDetractor.width, germanTheTrueDetractor.mode);
+					    Simulate.create(i, germanTheTrueDetractor.height, germanTheTrueDetractor.width, mode2);
+						sum += Simulate.run(i, germanTheTrueDetractor.height, germanTheTrueDetractor.width, germanTheTrueDetractor.mode);
 						Simulate.destroy();
 					}
 					tickMedio[i - 1] = sum / 1000;
-					printf("%f", sum);
+					printf("\n%f", sum);
+					printf("\n%d", i);
 				}
 				//histograma(tickMedio, i);
 			}
