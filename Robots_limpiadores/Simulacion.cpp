@@ -80,22 +80,23 @@ uint simulacion::run(uint robotcount, uint fils, uint cols, modetype m)
 			
 
 		}
-		
-		 while (!pisop.stillDirty())
+	}
+	
+	else	// MODO2
+	{
+		while (pisop.stillDirty())
 		{
 			for (uint i = 0; i < robotcount; i++)
 			{
 				robs[i].update(fils, cols);
 				position_t coord_actual = robs[i].getPos();
 				pisop.update(coord_actual.x, coord_actual.y);
-				al_clear_to_color(al_map_rgb(0, 0, 0));
-				al_flip_display();
+
 			}
 
 			ticks++;
 			al_rest(0.003);
 		}
-		
 	}
 	return ticks;
 }
