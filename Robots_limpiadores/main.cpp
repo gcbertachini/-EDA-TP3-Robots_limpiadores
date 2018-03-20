@@ -37,6 +37,7 @@ using namespace std;
 			cout << "-Robots (Any positive number greater than 0)\n" << endl;
 			cout << "-Mode (1 or 2. Mode 1 runs a graphical simulation. Mode 2 runs multiple simulations and show a graph at the end.\n" << endl;
 			cout << "Should you choose Mode 2, inputting the number of robots is not necessary.)" << endl;
+			cout << "Press any key to end the program." << endl;
 		}
 		
 		getchar(); //Este getchar borrenlo antes de entregar, es para ver que imprime el programa.
