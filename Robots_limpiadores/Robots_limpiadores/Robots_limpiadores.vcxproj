@@ -69,7 +69,11 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Allegro_LibraryType>DynamicDebug</Allegro_LibraryType>
+    <Allegro_AddonImage>true</Allegro_AddonImage>
+    <Allegro_AddonPrimitives>true</Allegro_AddonPrimitives>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -125,12 +129,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\general.h" />
+    <ClInclude Include="..\parameters.h" />
     <ClInclude Include="..\parseCmdLine.h" />
     <ClInclude Include="..\parser.h" />
     <ClInclude Include="..\piso.h" />
     <ClInclude Include="..\robot.h" />
     <ClInclude Include="..\Simulacion.h" />
-    <ClInclude Include="parameters.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

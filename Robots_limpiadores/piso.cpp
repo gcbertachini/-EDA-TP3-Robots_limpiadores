@@ -13,7 +13,7 @@ bool Piso::create(unsigned int fila, unsigned int columna)
 	fila_size = fila;
 	col_size = columna;
 
-	tiles = (bool **)malloc(fila_size*col_size * sizeof(bool));
+	tiles = (bool**)malloc(fila_size*col_size * sizeof(bool));
 	if (tiles == NULL)
 	{
 		return false;	//esto indica que no se pudo reservar memoria

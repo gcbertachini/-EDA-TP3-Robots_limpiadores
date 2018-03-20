@@ -1,11 +1,12 @@
 #include "Simulacion.h"
+#include "general.h"
 #include <time.h>
 #include <iostream>
 #include <cmath>
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_image.h>
 
-ALLEGRO_DISPLAY *dis = NULL;
+
 
 bool simulacion::create(uint robotcount, uint fils, uint cols, modetype m)
 {
@@ -28,8 +29,7 @@ bool simulacion::create(uint robotcount, uint fils, uint cols, modetype m)
 	else
 
 	{
-		pisop.destroy();
-//		destroy();
+		destroy();
 	}
 
 	return (robs != NULL);
@@ -40,16 +40,71 @@ bool simulacion::create(uint robotcount, uint fils, uint cols, modetype m)
 
 uint simulacion::run(uint robotcount, uint fils, uint cols, modetype m)
 {
-	while (!pisop.stillDirty())
+	if (m == mode1)
 	{
-		for (uint i = 0; i < robotcount; i++)
+		//////INICIALIZACION DE ALLEGRO Y DEFINES//////////
+
+		if (!al_init())
 		{
-			robs[i].update(fils, cols);
-			position_t coord_actual = robs[i].getPos();
-			pisop.update(coord_actual.x, coord_actual.y);
+			fprintf(stderr, "Allegro not initialized");
+			return -1;
+		}
+
+		if (!al_init_image_addon())
+		{
+			fprintf(stderr, "failed to initialize image addon !\n");
+			return -1;
+		}
+
+		ALLEGRO_DISPLAY *display = NULL;
+
+		display = al_create_display(700, 700);
+
+
+
+		for (uint i = 0; i < robotcount; i++)	//Inicializacion de imagen de los robots
+		{
+			if (i == 0)
+			{
+				robs[i].allegro_robot("WallE.png");
+			}
+
+			else
+			{
+				if (i == (robotcount - 1))
+				{
+					robs[i].allegro_robot("Eva.png");
+				}
+
+				else
+				{
+					robs[i].allegro_robot("Limpieza.png");
+				}
+			}
+
+		}
+
+		while (!pisop.stillDirty())
+		{
+			for (uint i = 0; i < robotcount; i++)
+			{
+				robs[i].update(fils, cols);
+				position_t coord_actual = robs[i].getPos();
+				pisop.update(coord_actual.x, coord_actual.y);
+				al_clear_to_color(al_map_rgb(0, 0, 0));
+				al_flip_display();
+			}
+
+			ticks++;
+			al_rest(0.003);
 		}
 	}
-	ticks++;
-
 	return ticks;
+}
+
+
+void simulacion::destroy()
+{
+	pisop.destroy();
+	free(robs);
 }

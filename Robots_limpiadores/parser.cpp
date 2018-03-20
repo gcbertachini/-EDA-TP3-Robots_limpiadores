@@ -7,7 +7,7 @@
 bool parseCallback(char *key, char *value, void * parameters)
 {
 
-	parameters_t * data = (parameters_t*) parameters ;  //Esto es redundante, pero visual studio no me dejaba desreferenciarlo bien si no lo hacía.
+	class parameters_t * data = (class parameters_t*) parameters ;  //Esto es redundante, pero visual studio no me dejaba desreferenciarlo bien si no lo hacía.
 
 
 	bool validez = false; //Respuesta del callback
@@ -57,7 +57,7 @@ char* strlower(char str[])
 bool checkValues(char * key, char * value, void * parameters) {
 
 
-	parameters_t * param = (parameters_t *)parameters;
+	class parameters_t * param = (class parameters_t *)parameters;
 	bool validez = false;
 
 	char casehandler[MAX_PARAM_SIZE]; //String para trabajar con las mayusculas/minusculas.
