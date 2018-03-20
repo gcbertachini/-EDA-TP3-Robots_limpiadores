@@ -15,6 +15,7 @@ public:
 		robots = 0;
 		mode = mode0;
 	}
+	bool flags[4] = { 0 }; //Flags: Width, Heigth, Robots, Mode.
 	const char * options[OPTION_QTY];
 	int width;
 	int height;

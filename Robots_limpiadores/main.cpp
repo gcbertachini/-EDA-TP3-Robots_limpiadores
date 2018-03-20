@@ -18,7 +18,7 @@ using namespace std;
 
 		int vArguments = parseCmdLine(argc, argv, parseCallback, &germanTheTrueDetractor); //Cantidad de argumentos válidos.
 
-		if ((((vArguments == 4) && germanTheTrueDetractor.mode == mode1)) || ((vArguments == 3) && germanTheTrueDetractor.robots == 0)) 
+		if ((vArguments == 4) || ((vArguments == 3) && germanTheTrueDetractor.robots == 0)) 
 			{
 		       printf("Height: %d \nWidth = %d \nNumber of robots = %d \nMode: %d", germanTheTrueDetractor.height, germanTheTrueDetractor.width, germanTheTrueDetractor.robots, germanTheTrueDetractor.mode);
 		
