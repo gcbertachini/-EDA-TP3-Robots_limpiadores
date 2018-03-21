@@ -3,15 +3,18 @@
 #include <time.h>
 #include <iostream>
 #include <cmath>
-
+#include <allegro5/allegro.h>
+#include <allegro5/allegro_image.h>
 
 
 
 bool simulacion::create(uint robotcount, uint fils, uint cols, modetype m)
 {
+
 	pisop.create(fils, cols);	//Creo el piso
 
 	robs = (Robot*)malloc(robotcount * sizeof(Robot));	//Creo los robots
+
 	if (robs != NULL)
 	{
 		for (uint i = 0; i < robotcount; i++)
@@ -19,6 +22,7 @@ bool simulacion::create(uint robotcount, uint fils, uint cols, modetype m)
 			robs[i].create(fils, cols);
 		}
 
+//		uint ticks = 0;
 
 	}
 
@@ -54,11 +58,11 @@ uint simulacion::run(uint robotcount, uint fils, uint cols, modetype m)
 
 		ALLEGRO_DISPLAY *display = NULL;
 
-		display = al_create_display(700, 700);
+		display = al_create_display(SCREENSIZE, SCREENSIZE);
 
 
 
-		for (uint i = 0; i < robotcount; i++)	//Inicializacion de imagen de los robots
+/*		for (uint i = 0; i < robotcount; i++)	//Inicializacion de imagen de los robots
 		{
 			if (i == 0)
 			{
@@ -69,19 +73,61 @@ uint simulacion::run(uint robotcount, uint fils, uint cols, modetype m)
 			{
 				if (i == (robotcount - 1))
 				{
-					//robs[i].allegro_robot("Eva.png");
+					robs[i].allegro_robot("Eva.png");
 				}
 
 				else
 				{
-					//robs[i].allegro_robot("Limpieza.png");
+					robs[i].allegro_robot("Limpieza.png");
 				}
 			}
 			
 
+		}	*/
+		
+		 while (pisop.stillDirty())
+		{
+		
+
+			 for (uint i = 0; i < robotcount; i++)
+			 {
+				 robs[i].update(SCREENSIZE, SCREENSIZE);
+				 position_t coord_actual = robs[i].getPos();
+				
+				 if (i == 0)
+				 {
+					 robs[i].allegro_robot("WallE.png", coord_actual.x , coord_actual.y);
+				 }
+
+				 else
+				 {
+					 if (i == (robotcount - 1))
+					 {
+						 robs[i].allegro_robot("Eva.png", coord_actual.x, coord_actual.y);
+					 }
+
+					 else
+					 {
+						 robs[i].allegro_robot("Limpieza.png", coord_actual.x, coord_actual.y);
+					 }
+				 }
+
+				// robs[i].update(fils, cols);
+				// position_t coord_actual = robs[i].getPos();
+				 pisop.update(coord_actual.x, coord_actual.y);
+
+
+
+
+			 }
+				 ticks++;
+				 al_flip_display();
+				 al_clear_to_color(al_map_rgb(0, 0, 0));
+				 al_rest(0.003);
+			 
 		}
+		
 	}
-	
 	else	// MODO2
 	{
 		while (pisop.stillDirty())
