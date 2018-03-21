@@ -22,15 +22,14 @@ using namespace std;
 			{
 		       printf("Height: %d \nWidth = %d \nNumber of robots = %d \nMode: %d", germanTheTrueDetractor.height, germanTheTrueDetractor.width, germanTheTrueDetractor.robots, germanTheTrueDetractor.mode);
 		
-			/*if (germanTheTrueDetractor.mode == mode1)
+			if (germanTheTrueDetractor.mode == mode1)
 			{
 				simulacion Simulate;
 				Simulate.create(germanTheTrueDetractor.robots, germanTheTrueDetractor.height, germanTheTrueDetractor.width, germanTheTrueDetractor.mode);
 				Simulate.run(germanTheTrueDetractor.robots, germanTheTrueDetractor.height, germanTheTrueDetractor.width, germanTheTrueDetractor.mode);
-
-			Simulate.destroy();
-			}*/
-			if(1)
+				Simulate.destroy();
+			}
+			/*else(1)
 			{
 				simulacion Simulate;
 				double tickMedio[MAX_ROBS_PERMITIDOS] = {};
@@ -52,7 +51,7 @@ using namespace std;
 				}
 				//histograma(tickMedio, i);
 			}
-		
+		*/
 		
 		}
 		else {

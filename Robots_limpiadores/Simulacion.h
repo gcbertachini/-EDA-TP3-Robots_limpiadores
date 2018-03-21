@@ -24,6 +24,5 @@ private:
 	Piso pisop;
 	uint ticks;
 	modetype mode;
-	uint ticks=0;
 
 };

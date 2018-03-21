@@ -18,7 +18,7 @@ public:
 	void create(uint maxFils, uint maxCols);
 	void update(uint maxFils, uint maxCols);
 	position_t getPos();
-	void allegro_robot(const char * nombre_archivo); //////AGREGADO POR RUBIDIO, VERIFICAR
+	void allegro_robot(const char * nombre_archivo, double x, double y); //////AGREGADO POR RUBIDIO, VERIFICAR
 
 private:
 	position_t location;

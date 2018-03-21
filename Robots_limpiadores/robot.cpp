@@ -7,6 +7,7 @@
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_image.h>
 
+
 #define RADIAN(a) ( (a)/( 180.0/(double)M_PI) )
 #define PNGSIZE 100
 
