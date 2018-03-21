@@ -5,6 +5,7 @@
 #include <cmath>
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_image.h>
+#include<allegro5\allegro_primitives.h>
 
 
 
@@ -56,6 +57,12 @@ uint simulacion::run(uint robotcount, uint fils, uint cols, modetype m)
 			return -1;
 		}
 
+		if(!al_init_primitives_addon())
+		{
+			fprintf(stderr, "failed to initialize primitive addon !\n");
+			return -1;
+		}
+
 		ALLEGRO_DISPLAY *display = NULL;
 
 		display = al_create_display(SCREENSIZE, SCREENSIZE);
@@ -88,6 +95,32 @@ uint simulacion::run(uint robotcount, uint fils, uint cols, modetype m)
 		 while (pisop.stillDirty())
 		{
 		
+			 //antes de los robots dibujo el piso
+			 
+			 for (uint i = 0; i < cols; i++)
+			 {
+				 for (uint j = 0; j < fils; j++)
+				 {
+
+
+					 if (!pisop.isDirty(i, j))
+					 {
+						 al_draw_filled_rectangle((SCREENSIZE / cols)*i, (SCREENSIZE / fils)*j, (SCREENSIZE / cols) + (SCREENSIZE / cols)*i, (SCREENSIZE / fils) + (SCREENSIZE / fils)*j, al_map_rgb(155, 155, 140));
+					 }
+					 else
+					 {
+						 al_draw_filled_rectangle((SCREENSIZE / cols)*i, (SCREENSIZE / fils)*j, (SCREENSIZE / cols) + (SCREENSIZE / cols)*i, (SCREENSIZE / fils) + (SCREENSIZE / fils)*j, al_map_rgb(255, 255, 240));
+					 }
+
+					 printf("%d piso \n", pisop.isDirty(i, j));
+
+					 al_draw_rectangle((SCREENSIZE / cols)*i, (SCREENSIZE / fils)*j, (SCREENSIZE / cols) + (SCREENSIZE / cols)*i, (SCREENSIZE / fils) + (SCREENSIZE / fils)*j, al_map_rgb(0, 0, 0), 3);// este se dibuja siempre para hacer la divison de baldosas
+
+				 }
+			 }
+			 
+			
+
 
 			 for (uint i = 0; i < robotcount; i++)
 			 {
@@ -114,8 +147,12 @@ uint simulacion::run(uint robotcount, uint fils, uint cols, modetype m)
 
 				// robs[i].update(fils, cols);
 				// position_t coord_actual = robs[i].getPos();
+
+
 				 pisop.update(coord_actual.x, coord_actual.y);
 
+
+				 
 
 
 
@@ -146,6 +183,13 @@ uint simulacion::run(uint robotcount, uint fils, uint cols, modetype m)
 	}
 	return ticks;
 }
+
+
+
+
+
+
+
 
 void simulacion::destroy()
 {

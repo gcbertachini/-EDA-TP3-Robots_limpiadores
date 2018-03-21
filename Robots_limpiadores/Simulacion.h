@@ -18,6 +18,8 @@ public:
 
 	void destroy();
 
+	
+
 
 private:
 	Robot * robs;
