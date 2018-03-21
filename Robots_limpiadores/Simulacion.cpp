@@ -36,6 +36,8 @@ bool simulacion::create(uint robotcount, uint fils, uint cols, modetype m)
 
 uint simulacion::run(uint robotcount, uint fils, uint cols, modetype m)
 {
+	ticks = 0;
+
 	if (m == mode1)
 	{
 		//////INICIALIZACION DE ALLEGRO Y DEFINES//////////
@@ -95,9 +97,12 @@ uint simulacion::run(uint robotcount, uint fils, uint cols, modetype m)
 			}
 
 			ticks++;
-			al_rest(0.003);
+			if (ticks > 20)
+				break;
 		}
 	}
+	printf("\n%d", ticks);
+
 	return ticks;
 }
 

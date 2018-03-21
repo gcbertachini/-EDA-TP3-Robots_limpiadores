@@ -14,7 +14,7 @@ using namespace std;
 
 void Robot::create(uint maxFils, uint maxCols)
 {
-	srand(time(NULL));
+	
 	location.x = (rand() % maxCols);  //Obtengo una posición en x aleatoria dentro del tablero
 	location.y = (rand() % maxFils); //Obtengo una posición en y aleatoria dentro del tablero
 	dir = (RADIAN(rand() % 360));  //Obtengo una dirección aleatoria entre 0 y 2Pi para luego pasarla a radianes
@@ -34,7 +34,7 @@ void Robot::update(uint maxFils, uint maxCols)
 	next_location.x = location.x + cos(dir);  //Calculo la futura posición en x
 	next_location.y = location.y + sin(dir);  //Calculo la futura posición en y
 
-	if ((maxCols >= floor(next_location.x)) && (maxFils >= floor(next_location.y))) //Me fijo si no se va de la cocina
+	if ((((double)maxCols) <= floor(next_location.x)) && (((double)maxFils) <= floor(next_location.y))) //Me fijo si no se va de la cocina
 		can_move = false;
 	else  //Si no se va las posciones futuras pasan a ser las actuales
 	{

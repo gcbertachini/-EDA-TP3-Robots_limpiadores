@@ -9,8 +9,9 @@
 
 using namespace std;
 
-	int main(int argc, char * argv[]) {
-
+	int main(int argc, char * argv[])
+	{
+		srand(time(NULL));
 		
 		bool allegro_startup(void);
 
@@ -42,9 +43,11 @@ using namespace std;
 
 					for (int countsum = 0; countsum < 1000; countsum++)
 					{
+						printf("\n Cantidad de robots:%d\n", i);
 					    Simulate.create(i, germanTheTrueDetractor.height, germanTheTrueDetractor.width, mode2);
 						sum += Simulate.run(i, germanTheTrueDetractor.height, germanTheTrueDetractor.width, germanTheTrueDetractor.mode);
 						Simulate.destroy();
+						
 					}
 					tickMedio[i - 1] = sum / 1000;
 					printf("\n%f", sum);

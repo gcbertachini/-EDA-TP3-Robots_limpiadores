@@ -1,6 +1,8 @@
 #pragma once
 #include<cmath>
 
+typedef enum{sucio=false,limpio=true }estado_baldosa_t;
+
 class Piso {
 
 public:

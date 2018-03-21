@@ -24,7 +24,7 @@ bool Piso::create(unsigned int fila, unsigned int columna)
 		{
 			for (unsigned int j = 0; j < col_size; j++)
 			{
-				tiles[i*col_size + j] = true;	//seteo la baldosa como sucia
+				tiles[i*col_size + j] = sucio;	//seteo la baldosa como sucia
 
 			}
 
@@ -41,9 +41,9 @@ bool Piso::update(double x, double y)
 	int new_x = (int)floor(x);	//trunco los numeros para sacar su parte decimal
 	int new_y = (int)floor(y);
 
-	if (tiles[new_x*col_size + new_y] == true)
+	if (tiles[new_x*col_size + new_y] == sucio)
 	{
-		tiles[new_x*col_size + new_y] = false;	//actualizo y limpio la baldosa
+		tiles[new_x*col_size + new_y] = limpio;	//actualizo y limpio la baldosa
 		return true;	//indico que se limpio una baldosa y hay que actualizar el mapa
 	}
 	else
@@ -63,7 +63,7 @@ bool Piso::isDirty(double x, double y)
 	int new_x = (int)floor(x);	//trunco los numeros para sacar su parte decimal
 	int new_y = (int)floor(y);
 
-	if (tiles[new_x*col_size + new_y] == true)
+	if (tiles[new_x*col_size + new_y] == sucio)
 	{
 		return true;	//indico que la baldosa sigue sucia
 	}
@@ -76,18 +76,32 @@ bool Piso::isDirty(double x, double y)
 
 bool Piso::stillDirty()
 {
-	bool control = false;
+	bool control = limpio;
 
-	for (unsigned int i = 0; ((i < fila_size) && !control); i++)
+	for (unsigned int i = 0; ((i < fila_size) && (control == limpio)); i++)
 	{
-		for (unsigned int j = 0; ((j < col_size) && !control); j++)
+		for (unsigned int j = 0; ((j < col_size) && (control == limpio)); j++)
 		{
-			if (tiles[i*col_size + j] == true)	//me fijo si alguna de la baldosa esta sucia
+			if (tiles[i*col_size + j] == sucio)	//me fijo si alguna de la baldosa esta sucia
 			{
-				control = true;
-			}
+				control = sucio;
+			}		
 		}
 	}
 
-	return control;
+	for (unsigned int i = 0; (i < fila_size) ; i++)
+	{
+		for (unsigned int j = 0; (j < col_size) ; j++)
+		{
+		if (tiles[i*col_size + j] == sucio)	//me fijo si alguna de la baldosa esta sucia
+		{
+			printf("|*|");
+		}
+		else
+			printf("| |");
+		}
+		puts("\n");
+	}
+	puts("\n\n");
+	return (control==sucio);
 }
