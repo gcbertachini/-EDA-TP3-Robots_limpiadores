@@ -11,7 +11,8 @@ using namespace std;
 
 	int main(int argc, char * argv[]) {
 
-		
+		srand(time(NULL));
+
 		bool allegro_startup(void);
 
 		class parameters_t germanTheTrueDetractor;
@@ -29,7 +30,7 @@ using namespace std;
 				Simulate.run(germanTheTrueDetractor.robots, germanTheTrueDetractor.height, germanTheTrueDetractor.width, germanTheTrueDetractor.mode);
 				Simulate.destroy();
 			}
-			/*else(1)
+			else
 			{
 				simulacion Simulate;
 				double tickMedio[MAX_ROBS_PERMITIDOS] = {};
@@ -51,7 +52,6 @@ using namespace std;
 				}
 				//histograma(tickMedio, i);
 			}
-		*/
 		
 		}
 		else {
