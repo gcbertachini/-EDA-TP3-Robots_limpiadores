@@ -34,26 +34,31 @@ using namespace std;
 			if(1)
 			{
 				simulacion Simulate;
-				double tickMedio[MAX_ROBS_PERMITIDOS] = {};
+				uint tickMedio[MAX_ROBS_PERMITIDOS] = {};
 
-				for (int i = 1; (i <= MAX_ROBS_PERMITIDOS) &&   ((tickMedio[i] - tickMedio[i - 1]) < 0.1) ; i++)
+				for (uint i = 0;  i < MAX_ROBS_PERMITIDOS ; i++)
 				{	
 					double sum = 0.0;
 
 
 					for (int countsum = 0; countsum < 1000; countsum++)
 					{
-						printf("\n Cantidad de robots:%d\n", i);
-					    Simulate.create(i, germanTheTrueDetractor.height, germanTheTrueDetractor.width, mode2);
-						sum += Simulate.run(i, germanTheTrueDetractor.height, germanTheTrueDetractor.width, germanTheTrueDetractor.mode);
+					    Simulate.create(i+1, germanTheTrueDetractor.height, germanTheTrueDetractor.width, mode2);
+						sum += Simulate.run(i+1, germanTheTrueDetractor.height, germanTheTrueDetractor.width, germanTheTrueDetractor.mode);
 						Simulate.destroy();
 						
 					}
-					tickMedio[i - 1] = sum / 1000;
-					printf("\n%f", sum);
-					printf("\n%d", i);
+					tickMedio[i] =(uint) (sum / 1000);
+
+					if(i>0)
+						if ((((tickMedio[i - 1] / tickMedio[i - 1]) - (tickMedio[i] / tickMedio[i - 1])) < 0.1))
+						{
+							draw_graphic(i, tickMedio);
+							break;
+						}
 				}
-				//histograma(tickMedio, i);
+				
+				getchar();
 			}
 		
 		

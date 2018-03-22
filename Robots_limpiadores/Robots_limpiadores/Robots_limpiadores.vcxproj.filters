@@ -36,6 +36,9 @@
     <ClCompile Include="..\allegro_startup.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\draw_graphic.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\parseCmdLine.h">
@@ -67,14 +70,37 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\WallE.png">
+      <Filter>Resource Files</Filter>
+    </Image>
     <Image Include="..\Eva.png">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="..\Limpieza.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="..\WallE.png">
+    <Image Include="..\background.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="..\papel_milimetrado.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\limpiezaaa.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\robot.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="..\5ceta_mono.ttf">
+      <Filter>Resource Files</Filter>
+    </Font>
+    <Font Include="..\disney.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="..\shooting_stars.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
   </ItemGroup>
 </Project>

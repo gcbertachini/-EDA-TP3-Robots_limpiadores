@@ -1,3 +1,4 @@
+
 #include "allegro_startup.h"
 
 #define BACKGROUND_MUSIC	"shooting_stars.wav"

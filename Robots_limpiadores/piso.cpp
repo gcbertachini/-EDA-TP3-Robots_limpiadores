@@ -89,7 +89,7 @@ bool Piso::stillDirty()
 		}
 	}
 
-	for (unsigned int i = 0; (i < fila_size) ; i++)
+	/*for (unsigned int i = 0; (i < fila_size) ; i++)
 	{
 		for (unsigned int j = 0; (j < col_size) ; j++)
 		{
@@ -102,6 +102,6 @@ bool Piso::stillDirty()
 		}
 		puts("\n");
 	}
-	puts("\n\n");
+	puts("\n\n");*/
 	return (control==sucio);
 }

@@ -34,7 +34,7 @@ void Robot::update(uint maxFils, uint maxCols)
 	next_location.x = location.x + cos(dir);  //Calculo la futura posición en x
 	next_location.y = location.y + sin(dir);  //Calculo la futura posición en y
 
-	if ((((double)maxCols) <= floor(next_location.x)) && (((double)maxFils) <= floor(next_location.y))) //Me fijo si no se va de la cocina
+	if ((((double)maxCols) <= floor(next_location.x)) || (0>floor(next_location.x)) || (0>floor(next_location.y)) || (((double)maxFils) <= floor(next_location.y))) //Me fijo si no se va de la cocina
 		can_move = false;
 	else  //Si no se va las posciones futuras pasan a ser las actuales
 	{
@@ -47,7 +47,7 @@ void Robot::update(uint maxFils, uint maxCols)
 
 }
 
-void Robot::allegro_robot(const char * nombre_archivo)	//AGREGADO POR RUBIDIO, VERIFICAR
+void Robot::allegro_robot(const char * nombre_archivo, double x, double y)	//AGREGADO POR RUBIDIO, VERIFICAR
 {
 	ALLEGRO_BITMAP * imagen = al_load_bitmap("WallE.png");
 	al_draw_scaled_bitmap(imagen, 0, 0, 1000, 1000, 0, 0, 0, 100, 100);
