@@ -1,11 +1,13 @@
 #define _USE_MATH_DEFINES
 #include <cmath>
 #include "robot.h"
+#include "general.h"
+#include "parameters.h"
 #include <time.h>
 #include <iostream>
-
 #include <allegro5/allegro.h>
-#include <allegro5/allegro_image.h>
+#include <allegro5/allegro_image.h>}
+#include<allegro5/allegro_primitives.h>
 
 #define RADIAN(a) ( (a)/( 180.0/(double)M_PI) )
 
@@ -47,8 +49,7 @@ void Robot::update(uint maxFils, uint maxCols)
 
 }
 
-void Robot::allegro_robot(const char * nombre_archivo, double x, double y)	//AGREGADO POR RUBIDIO, VERIFICAR
+void Robot::allegro_robot(uint fils, uint cols)	//AGREGADO POR RUBIDIO, VERIFICAR
 {
-	ALLEGRO_BITMAP * imagen = al_load_bitmap("WallE.png");
-	al_draw_scaled_bitmap(imagen, 0, 0, 1000, 1000, 0, 0, 0, 100, 100);
+	al_draw_filled_circle((SCREENSIZE/cols)*location.x, (SCREENSIZE / fils)*location.y, 10, al_map_rgb(50, 50, 255));
 }

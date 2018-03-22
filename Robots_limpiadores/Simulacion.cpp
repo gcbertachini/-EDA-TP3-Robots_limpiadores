@@ -5,9 +5,9 @@
 #include <cmath>
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_image.h>
-#include<allegro5\allegro_primitives.h>
+#include<allegro5/allegro_primitives.h>
 
-
+#define REST 0.01
 
 bool simulacion::create(uint robotcount, uint fils, uint cols, modetype m)
 {
@@ -107,11 +107,12 @@ uint simulacion::run(uint robotcount, uint fils, uint cols, modetype m)
 				 robs[i].update(fils, cols);
 				 position_t coord_actual = robs[i].getPos();
 				 pisop.update(coord_actual.x, coord_actual.y);
+				 robs[i].allegro_robot(fils, cols);
 			 }
 				 ticks++;
 				 al_flip_display();
 				 al_clear_to_color(al_map_rgb(0, 0, 0));
-				 al_rest(0.003);
+				 al_rest(REST);
 			 
 		}
 		
