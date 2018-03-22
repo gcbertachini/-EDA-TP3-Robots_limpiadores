@@ -21,17 +21,17 @@ using namespace std;
 
 		if ((vArguments == 4) || ((vArguments == 3) && germanTheTrueDetractor.robots == 0)) 
 			{
-		       printf("Height: %d \nWidth = %d \nNumber of robots = %d \nMode: %d", germanTheTrueDetractor.height, germanTheTrueDetractor.width, germanTheTrueDetractor.robots, germanTheTrueDetractor.mode);
+		       printf("Height: %d \nWidth = %d \nNumber of robots = %d \nMode: %d\n", germanTheTrueDetractor.height, germanTheTrueDetractor.width, germanTheTrueDetractor.robots, germanTheTrueDetractor.mode);
 		
-			/*if (germanTheTrueDetractor.mode == mode1)
+			if (germanTheTrueDetractor.mode == mode1)
 			{
 				simulacion Simulate;
 				Simulate.create(germanTheTrueDetractor.robots, germanTheTrueDetractor.height, germanTheTrueDetractor.width, germanTheTrueDetractor.mode);
 				Simulate.run(germanTheTrueDetractor.robots, germanTheTrueDetractor.height, germanTheTrueDetractor.width, germanTheTrueDetractor.mode);
-
-			Simulate.destroy();
-			}*/
-			if(1)
+				Simulate.destroy();
+				cout << "Press any key to end the program." << endl;
+			}
+			else
 			{
 				simulacion Simulate;
 				uint tickMedio[MAX_ROBS_PERMITIDOS] = {};

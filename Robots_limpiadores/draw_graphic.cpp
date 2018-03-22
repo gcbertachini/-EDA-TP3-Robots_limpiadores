@@ -1,8 +1,7 @@
 
 #include "allegro_startup.h"
+
 void print_num(int i, float desp, ALLEGRO_FONT* font2, ALLEGRO_DISPLAY_MODE* disp_data, float section_width);
-
-
 
 int draw_graphic(uint i, uint * arr) 
 {

@@ -42,6 +42,7 @@ bool simulacion::create(uint robotcount, uint fils, uint cols, modetype m)
 uint simulacion::run(uint robotcount, uint fils, uint cols, modetype m)
 {
 	ticks = 0;
+	bool floorIsDirty = true;
 
 	if (m == mode1)
 	{
@@ -70,33 +71,12 @@ uint simulacion::run(uint robotcount, uint fils, uint cols, modetype m)
 		display = al_create_display(SCREENSIZE, SCREENSIZE);
 
 
-
-/*		for (uint i = 0; i < robotcount; i++)	//Inicializacion de imagen de los robots
-		{
-			if (i == 0)
-			{
-				robs[i].allegro_robot("WallE.png");
-			}
-
-			else
-			{
-				if (i == (robotcount - 1))
-				{
-					robs[i].allegro_robot("Eva.png");
-				}
-
-				else
-				{
-					robs[i].allegro_robot("Limpieza.png");
-				}
-			}
-			
-
-		}	*/
 		
-		 while (pisop.stillDirty())
+		 while (floorIsDirty)
 		{
 		
+			 floorIsDirty = pisop.stillDirty();
+
 			 //antes de los robots dibujo el piso
 			 
 			 for (uint i = 0; i < cols; i++)
@@ -114,8 +94,6 @@ uint simulacion::run(uint robotcount, uint fils, uint cols, modetype m)
 						 al_draw_filled_rectangle((SCREENSIZE / cols)*i, (SCREENSIZE / fils)*j, (SCREENSIZE / cols) + (SCREENSIZE / cols)*i, (SCREENSIZE / fils) + (SCREENSIZE / fils)*j, al_map_rgb(255, 255, 240));
 					 }
 
-					 printf("%d piso \n", pisop.isDirty(i, j));
-
 					 al_draw_rectangle((SCREENSIZE / cols)*i, (SCREENSIZE / fils)*j, (SCREENSIZE / cols) + (SCREENSIZE / cols)*i, (SCREENSIZE / fils) + (SCREENSIZE / fils)*j, al_map_rgb(0, 0, 0), 3);// este se dibuja siempre para hacer la divison de baldosas
 
 				 }
@@ -126,38 +104,9 @@ uint simulacion::run(uint robotcount, uint fils, uint cols, modetype m)
 
 			 for (uint i = 0; i < robotcount; i++)
 			 {
-				 robs[i].update(SCREENSIZE, SCREENSIZE);
+				 robs[i].update(fils, cols);
 				 position_t coord_actual = robs[i].getPos();
-				
-				 if (i == 0)
-				 {
-					 robs[i].allegro_robot("WallE.png", coord_actual.x , coord_actual.y);
-				 }
-
-				 else
-				 {
-					 if (i == (robotcount - 1))
-					 {
-						 robs[i].allegro_robot("Eva.png", coord_actual.x, coord_actual.y);
-					 }
-
-					 else
-					 {
-						 robs[i].allegro_robot("Limpieza.png", coord_actual.x, coord_actual.y);
-					 }
-				 }
-
-				// robs[i].update(fils, cols);
-				// position_t coord_actual = robs[i].getPos();
-
-
 				 pisop.update(coord_actual.x, coord_actual.y);
-
-
-				 
-
-
-
 			 }
 				 ticks++;
 				 al_flip_display();

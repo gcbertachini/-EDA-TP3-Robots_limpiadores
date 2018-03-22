@@ -96,7 +96,9 @@
     <Font Include="..\5ceta_mono.ttf">
       <Filter>Resource Files</Filter>
     </Font>
-    <Font Include="..\disney.ttf" />
+    <Font Include="..\disney.ttf">
+      <Filter>Resource Files</Filter>
+    </Font>
   </ItemGroup>
   <ItemGroup>
     <Media Include="..\shooting_stars.wav">
