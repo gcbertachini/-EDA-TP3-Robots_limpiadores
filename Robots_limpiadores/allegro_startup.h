@@ -12,7 +12,7 @@
 
 
 #define FPS	60.0
-#define GRAPHIC_LIFE_SPAN 5
+#define GRAPHIC_LIFE_SPAN 5.0
 #define REST (1.0/FPS)
 
 bool allegro_startup(void);

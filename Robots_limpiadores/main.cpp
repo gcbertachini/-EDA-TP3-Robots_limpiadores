@@ -4,8 +4,10 @@
 #include "Simulacion.h"
 #include <iostream>
 #include "allegro_startup.h"
+#include "grafico.h"
 
 #define MAX_ROBS_PERMITIDOS 100
+
 
 using namespace std;
 
@@ -34,9 +36,11 @@ using namespace std;
 			else
 			{
 				simulacion Simulate;
-				uint tickMedio[MAX_ROBS_PERMITIDOS] = {};
+				double tickMedio[MAX_ROBS_PERMITIDOS] = {};
+				bool control = true;
+				uint nfinal;
 
-				for (uint i = 0;  i < MAX_ROBS_PERMITIDOS ; i++)
+				for (uint i = 0;  (i < MAX_ROBS_PERMITIDOS) && (control) ; i++)
 				{	
 					double sum = 0.0;
 
@@ -48,17 +52,21 @@ using namespace std;
 						Simulate.destroy();
 						
 					}
-					tickMedio[i] =(uint) (sum / 1000);
+					tickMedio[i] = (sum / 1000);
+					
+					
+					if ((i > 1) && ((tickMedio[i - 1] - tickMedio[i]) < 0.1))	//esto controla si se llego al maximo de iteraciones deseadas
+					{
+						control = false;
+					}
 
-					if(i>0)
-						if ((((tickMedio[i - 1] / tickMedio[i - 1]) - (tickMedio[i] / tickMedio[i - 1])) < 0.1))
-						{
-							draw_graphic(i, tickMedio);
-							break;
-						}
+					nfinal = i;
 				}
 				
-				getchar();
+				dibujar(nfinal, tickMedio);
+
+
+			
 			}
 		
 		
@@ -75,8 +83,14 @@ using namespace std;
 		}
 
 		
-		getchar(); //Este getchar borrenlo antes de entregar, es para ver que imprime el programa.
+		
 		void allegro_shut_down(void);
 
 		return 0;
 	}
+
+
+
+	
+
+	

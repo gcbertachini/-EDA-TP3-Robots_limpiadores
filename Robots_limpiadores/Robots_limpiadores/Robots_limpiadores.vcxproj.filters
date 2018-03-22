@@ -36,7 +36,7 @@
     <ClCompile Include="..\allegro_startup.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\draw_graphic.cpp">
+    <ClCompile Include="..\grafico.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -65,6 +65,9 @@
     <ClInclude Include="..\allegro_startup.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\grafico.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -83,9 +86,6 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="..\papel_milimetrado.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="..\limpiezaaa.png">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="..\robot.png">
